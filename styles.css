@@ -1,0 +1,90 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(steelblue, pink);
+}
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60vw;
+    height: 80vh;
+    background-color: white;
+    border-radius: 5px;
+}
+
+.contentBox{
+    display: flex;
+    padding: 5px;
+    flex-direction: column;
+    width: 50vw;
+    height: 70vh;
+    overflow: auto;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(27, 112, 182, 0.678), 0 6px 20px 0 rgba(27, 112, 182, 0.678);
+    background-image: url('https://t3.ftcdn.net/jpg/03/51/51/28/360_F_351512882_2kFH8IaSe4lyA7SXBLzEXyGKNEgbO1iH.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.quotesImg{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#author{
+    margin: 20px 0px;
+    font-size: 25px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-align: center;
+}
+
+.getQuotes{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 10px;
+    
+}
+
+.new, #tweet{
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background-color:lightpink;
+    color: black;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 8px;
+    border-radius: 5px;
+    border: none;
+}
+
+.new:hover{
+    background-color:unset;
+    border: 2px solid orchid;
+}
+#getquotes{
+    font-style: italic;
+    font-size: 30px;
+    text-align: center;
+    padding: 10px;
+}
+
+#tweet{
+    background-color: unset;
+}
+.tweetLogo{
+    display: flex;
+    justify-content: end;
+}

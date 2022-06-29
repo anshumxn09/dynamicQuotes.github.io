@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="https://cdn3.vectorstock.com/i/1000x1000/95/72/basic-quote-mark-icon-shape-dialog-logo-grunge-vector-29109572.jpg">
+    <title>Dynamic Quotes</title>
+</head>
+<body>
+    <div class="container">
+        <div class="contentBox">
+            <div class="quotesImg">
+                <div class="tweetLogo">
+                    <button id="tweet" type="button" title="click to tweet"><img src="https://pngroyale.com/wp-content/uploads/2021/12/Download-twitter-logo-pink-PNG-768x768.png" alt="" width="30" height="30"></button>
+                </div>
+                <p id="getquotes"></p>
+                <span id="author"></span>
+            </div>
+            <div class="getQuotes">
+                <button class="new" type="button" onclick="getQuotes()">New Quote</button>
+            </div>
+        </div>
+    </div>
+
+<script>
+
+    let realData = "";
+    let fetchQuote = "";
+    const getquotes = document.getElementById('getquotes');
+    const authorName = document.getElementById('author');
+    const tweet = document.getElementById('tweet');
+    console.log(tweet);
+    tweet.addEventListener('click', () => {
+        const tweetLink = `https://twitter.com/intent/tweet?text=${fetchQuote}`;
+        window.open(tweetLink);
+    })
+
+    const getNewQuotes = () => {
+
+        let rnum = Math.floor(Math.random() * 1642);
+        // console.log(rnum);
+        fetchQuote = realData[rnum].text;
+        getquotes.innerText = realData[rnum].text;
+        // console.log(authorName)
+        if(realData[rnum].author == null){
+            authorName.innerHTML = ' ~ By Unknown';
+        }
+        else{
+            authorName.innerHTML = ` ~ By ${realData[rnum].author}`;
+        }
+    }
+
+    const getQuotes = async () => {
+        const api = "https://type.fit/api/quotes";
+        try{
+            let data = await fetch(api);
+            realData = await data.json();
+            getNewQuotes();
+        } catch(error) {}
+    }
+
+    getQuotes();
+</script>
+</body>
+</html>
